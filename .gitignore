@@ -36,3 +36,8 @@ next-env.d.ts
 
 # IDEA
 /.idea/
+
+# LOCAL ENVIRONMENT
+.env*.local
+.env.*
+/env/*

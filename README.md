@@ -22,6 +22,21 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Environment variables
+
+Do you want to use some variable that varies per environment?
+
+`.env.*` files are what you're looking for! All the `.env` files are located under the `env/` folder in order to avoid conflicting with the default behavior of how Next.js treats them.
+Currently Next.js supports only [3 predefined environment values](https://nextjs.org/docs/basic-features/environment-variables) which doesn't fulfill our needs. Therefore we use [dotenv](https://github.com/motdotla/dotenv) package to load environment variables from a different location than root.
+
+Inspired by https://stackoverflow.com/questions/59462614/how-to-use-different-env-files-with-nextjs#answer-62464710
+
+`cross-env*`
+We use [cross-env](https://www.npmjs.com/package/cross-env) to run the commands and set the environment variables properly on both Windows and Unix systems.
+
+### Install:
+yarn add cross-env
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
