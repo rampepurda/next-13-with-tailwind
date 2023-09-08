@@ -2,9 +2,10 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import { useQuery } from '@/hooks/useQuery'
 import { Photos } from '@/components'
+import { environment } from '@/configuration'
 
 const SearchParams: NextPage = () => {
-  const url: string = 'https://jsonplaceholder.typicode.com/photos'
+  const url: string = `${environment.photosURL}`
   const { queryParam } = useQuery()
 
   return (

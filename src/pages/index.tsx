@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Next 13.4 testing page</title>
+        <title>Next 13.4 | Guide</title>
       </Head>
       <main
         className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
