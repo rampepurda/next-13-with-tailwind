@@ -1,32 +1,28 @@
-import "@/styles/globals.css";
+import '@/styles/globals.scss'
 
-import type { AppProps } from "next/app";
-import Head from "next/head";
-import Link from "next/link";
-import { useQuery } from "@/hooks/useQuery";
-import { usePathname } from "next/navigation";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
+import Link from 'next/link'
+import { useQuery } from '@/hooks/useQuery'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
+import { navigationMain } from '@/configuration'
+import useSWR from 'swr'
 
-type NavTop = {
-  title: string;
-  path: string;
-  param?: string | undefined;
-};
+type NavMain = {
+  title: string
+  path: string
+  param?: string | undefined
+}
 export default function App({ Component, pageProps }: AppProps) {
-  const { queryParam } = useQuery();
-  const pathName = usePathname();
-  const router = useRouter();
-  const navigationTop: NavTop[] = [
-    { path: "/", title: "Home", param: "?location=home" },
-    {
-      path: "/searchParamsIntro",
-      title: "useSearchParams",
-      param: "?name=useSearchParam",
-    },
-  ];
+  const [isDark, setIsDark] = useState<boolean>(false)
+  const { queryParam } = useQuery()
+  const pathName = usePathname()
+  const router = useRouter()
+  const navigationTop: NavMain[] = navigationMain
 
-  useEffect(() => {}, [pathName]);
+  useEffect(() => {}, [pathName, isDark])
 
   return (
     <>
@@ -35,29 +31,28 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <header>
         <h1 className="'text-3xl font-bold">Next Js 13.4 </h1>
       </header>
+
       <nav>
         <ul>
           {navigationTop.map(({ path, title, param }, idx: number) => {
             return (
               <li key={idx}>
-                <Link
-                  href={`${path}${param}`}
-                  className={pathName === path ? "isActive" : ""}
-                >
+                <Link href={`${path}${param}`} className={pathName === path ? 'isActive' : ''}>
                   {title}
                 </Link>
               </li>
-            );
+            )
           })}
         </ul>
       </nav>
-      <h3>{queryParam.get("location")}</h3>
-      <h3>{queryParam.get("name")}</h3>
+      <h3>{queryParam.get('location')}</h3>
+      <h3>{queryParam.get('name')}</h3>
 
       <Component {...pageProps} />
     </>
-  );
+  )
 }

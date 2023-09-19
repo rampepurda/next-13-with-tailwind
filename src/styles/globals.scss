@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --bgColor: #fff;
+  // In case we are using toggle and getting param by querySelector (:root)
+  color-scheme: dark;
+  background-color: var(--bgColor);
+}
+
+/* media queries:
+ @media (hover: hover) {}
+ @media (orientation: landscape) {}
+ @media (orientation: profile) {}
+ @media (prefers-color-scheme: dark) {}
+ @media (max-width: 900px) {}
+ */
+
+
+//The media query 'prefers-color-scheme: dark' is only applied if the user’s operating system appearance is set to “Dark”.
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    --bgColor: #000;
+    background: black;
+  }
+
+  body {
+    background-color: var(--bgColor) !important;
+    color: rgb(var(--foreground-rgb));
+  }
+}
+
+body {
+  margin: 1rem;
+  //background-color: rgb(var(--background-end-rgb));
+  background-color: var(--bgColor);
+  color: rgb(var(--foreground-rgb));
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  ul li {
+    display: inline-block;
+    border-right: 1px solid gray;
+    padding: .7rem 1rem;
+    font-size: 1.3rem;
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      border-right: 0
+    }
+  }
+
+  .isActive {
+    background-color: darkcyan;
+  }
+}

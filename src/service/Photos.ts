@@ -1,8 +1,9 @@
 import { PhotoType } from '@/types/photos'
+import { environment } from '@/configuration'
 
 class PhotosService {
   async getPhotos(): Promise<PhotoType[]> {
-    const data = await fetch('https://jsonplaceholder.typicode.com/photos')
+    const data = await fetch(`${environment.countriesURL}`)
     return data.json()
   }
 }

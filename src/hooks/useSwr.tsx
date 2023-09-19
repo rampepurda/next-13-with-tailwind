@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+import { GET_COUNTRIES_QUERY } from '@/queries'
 
 const fetcher = async (url: string) => {
   const response = await fetch(url)
