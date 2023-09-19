@@ -17,6 +17,7 @@ const CountriesPage: NextPage = () => {
       </Head>
 
       <main>
+        <h1>Vesrion1-LeftSide</h1>
         <h2>
           <a href="https://www.youtube.com/watch?v=hcp2o1egObw" target="_blank">
             SWR with GraphQl
